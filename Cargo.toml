@@ -45,3 +45,10 @@ git = "https://github.com/serenity-rs/songbird.git"
 branch = "next"
 features = ["driver", "gateway", "twilight", "rustls"]
 default-features = false
+
+[profile.release]
+lto = true
+incremental = true
+
+[profile.dev]
+incremental = true
