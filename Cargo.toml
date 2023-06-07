@@ -46,9 +46,14 @@ branch = "next"
 features = ["driver", "gateway", "twilight", "rustls"]
 default-features = false
 
+# Enable link time optimizations to full for releases
 [profile.release]
 lto = true
-incremental = true
 
+# Enable incremental builds only on dev profile
 [profile.dev]
 incremental = true
+
+# Compile dependencies only as release profile
+[profile.dev.package."*"]
+opt-level = 3
